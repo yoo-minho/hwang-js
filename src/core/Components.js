@@ -1,9 +1,11 @@
 export default class Component {
     $target;
+    $props;
     $state;
 
-    constructor($target) {
+    constructor($target, $props) {
         this.$target = $target;
+        this.$props = $props;
         this.setup();
         this.setEvent();
         this.render();
@@ -12,12 +14,17 @@ export default class Component {
     setup() {
     };
 
+    mounted() {
+
+    };
+
     template() {
         return '';
     }
 
     render() {
         this.$target.innerHTML = this.template();
+        this.mounted();
     }
 
     setEvent() {
@@ -34,6 +41,11 @@ export default class Component {
         this.$target.addEventListener(eventType, event => {
             if (!isTarget(event.target)) return false;
             callback(event);
+            console.log('11', event.target); //이전 그려짐
+            console.log('22', this.$target.querySelector('input')); //새로 그려짐
+            if (eventType === 'keyup') {
+                this.$target.querySelector('input').focus();
+            }
         })
     }
 }
