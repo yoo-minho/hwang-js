@@ -1,8 +1,26 @@
 import Component from "../core/Components.js";
 
 export default class Items extends Component {
+    get filteredItems() {
+        const {isFilter, items} = this.$state;
+        return items.filter(({active}) => (active && isFilter === 1) ||
+            (!active && isFilter === 2) || isFilter === 0
+        )
+    }
+
     setup() {
-        this.$state = {items: ['item1', 'item2']};
+        this.$state = {
+            isFilter: 0,
+            items: [{
+                seq: 1,
+                contents: 'item1',
+                active: false
+            }, {
+                seq: 2,
+                contents: 'item2',
+                active: true
+            }]
+        };
     }
 
     template() {
