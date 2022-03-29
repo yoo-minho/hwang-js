@@ -24,9 +24,14 @@ export default class App extends Component {
 
     template() {
         return `
-          <header data-component="item-appender"></header>
-          <main data-component="items"></main>
-          <footer data-component="item-filter"></footer>
+          <section>
+              <header data-component="item-appender"></header>
+              <main data-component="items"></main>
+              <footer data-component="item-filter"></footer>
+          </section>
+          <section>
+              test
+          </section>
         `;
     }
 
