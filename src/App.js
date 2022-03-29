@@ -1,7 +1,7 @@
 import Items from "./components/Items.js";
 import ItemAppender from "./components/ItemAppender.js"
 import ItemFilter from "./components/ItemFilter.js"
-import Component from "./core/Components.js";
+import Component from "./core/Component.js";
 
 export default class App extends Component {
     setup() {
